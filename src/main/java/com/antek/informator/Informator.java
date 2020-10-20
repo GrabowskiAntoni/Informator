@@ -1,7 +1,7 @@
 package com.antek.informator;
 
 public class Informator {
-    public static void main(String args) {
+    public static void main(String... args) {
         Osoba antek = new Osoba("12345678910");
         Osoba hania = new Osoba("12345678345");
         Osoba anetta = new Osoba("82456213787");
@@ -9,7 +9,7 @@ public class Informator {
         antek.setImie("Antoni");
         antek.setNazwisko("Grabowski");
         antek.setMama(anetta);
-
+        System.out.println(antek);
     }
 
 }
