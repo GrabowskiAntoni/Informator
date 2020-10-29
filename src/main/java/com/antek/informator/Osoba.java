@@ -7,6 +7,7 @@ public class Osoba {
     private String nazwisko;
     private String pesel;
     private ArrayList<Osoba> dzieci;
+    private ArrayList<Osoba> rodzice;
     private Osoba mama;
     private Osoba tata;
 
@@ -18,13 +19,18 @@ public class Osoba {
     @Override
     public String toString() {
         String toCoWypisze = "Nazywam się ";
-        toCoWypisze = toCoWypisze + imie + ' ' + nazwisko + ", a moje dzieci to ";
-        return toCoWypisze;
+        toCoWypisze = toCoWypisze + imie + ' ' + nazwisko;
+            if(dzieci != null)
+                toCoWypisze += ", a moje dzieci to: ";
+                for(Osoba dziecko : dzieci) {
+                    toCoWypisze += dziecko;
+                }
+            if(rodzice != null)
+                return toCoWypisze;
     }
 
     public String shortString() {
-
-        return imie + nazwisko + ", moi rodzice to: " + mama + tata;
+        return imie + " " + nazwisko;
     }
 
     public String getImie() {
@@ -59,7 +65,6 @@ public class Osoba {
     }
 
     public void setDzieci(ArrayList<Osoba> dzieci) {
-
         this.dzieci = dzieci;
     }
 
