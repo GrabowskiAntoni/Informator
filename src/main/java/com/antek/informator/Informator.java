@@ -8,8 +8,8 @@ public class Informator {
         Osoba hania = new Osoba("12345678345");
         Osoba anetta = new Osoba("82456213787");
         Osoba marcin = new Osoba("13467324958");
-        ArrayList<Osoba> dzieci = new ArrayList<>();
-        ArrayList<Osoba> rodzice = new ArrayList<>();
+        Osoba toska = new Osoba("29576392513");
+
 
         antek.setImie("Antoni");
         antek.setNazwisko("Grabowski");
@@ -23,13 +23,17 @@ public class Informator {
 
         anetta.setImie("Anetta");
         anetta.setNazwisko("Grabowska");
-        anetta.setDzieci(antek);
-        anetta.setDzieci(hania);
+        anetta.setDzieci(new ArrayList<>());
+        anetta.getDzieci().add(antek);
+        anetta.getDzieci().add(hania);
+        anetta.getDzieci().add(toska);
+
 
         marcin.setImie("Marcin");
         marcin.setNazwisko("Grabowski");
-        anetta.setDzieci(dzieci);
-        anetta.setDzieci(dzieci);
+        marcin.setDzieci(new ArrayList<>());
+        marcin.getDzieci().add(antek);
+        marcin.getDzieci().add(hania);
 
         System.out.println(antek);
         System.out.println(hania);

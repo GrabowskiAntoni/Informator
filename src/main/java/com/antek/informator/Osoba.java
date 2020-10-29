@@ -7,11 +7,10 @@ public class Osoba {
     private String nazwisko;
     private String pesel;
     private ArrayList<Osoba> dzieci;
-    private ArrayList<Osoba> rodzice;
     private Osoba mama;
     private Osoba tata;
 
-    Osoba(String pesel) {
+    public Osoba(String pesel) {
         this.pesel = pesel;
     }
 
@@ -20,13 +19,13 @@ public class Osoba {
     public String toString() {
         String toCoWypisze = "Nazywam się ";
         toCoWypisze = toCoWypisze + imie + ' ' + nazwisko;
-            if(dzieci != null)
-                toCoWypisze += ", a moje dzieci to: ";
-                for(Osoba dziecko : dzieci) {
-                    toCoWypisze += dziecko;
-                }
-            if(rodzice != null)
-                return toCoWypisze;
+        if (dzieci != null) {
+            toCoWypisze += ", a moje dzieci to: ";
+            for (Osoba dziecko : dzieci) {
+                toCoWypisze += dziecko;
+            }
+        }
+        return toCoWypisze;
     }
 
     public String shortString() {
