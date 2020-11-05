@@ -82,5 +82,6 @@ public class Osoba {
     public void setTata(Osoba tata) {
         this.tata = tata;
     }
+
 }
 
