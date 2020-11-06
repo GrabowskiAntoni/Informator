@@ -1,5 +1,6 @@
 package com.antek.informator;
 
+import javax.management.relation.Relation;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,6 +34,26 @@ public class Informator {
                 case "3":
                     printAll();
                     break;
+                case "4":
+                    System.out.println("Wpisz pesel rodzica:\n");
+                    String parentPesel = buffer.readLine();
+                    System.out.println("Wpisz pesel dziecka:\n");
+                    String childPesel = buffer.readLine();
+                    System.out.println("Wpisz 1 jeśli mama, wpisz 2 jeśli tata:\n");
+                    String relationString = buffer.readLine();
+                    switch (relationString) {
+                        case "1":
+                            Parent parent1 = Parent.MOTHER;
+                            addRelation(parentPesel, childPesel, parent1);
+                            break;
+                        case "2":
+                            Parent parent2 = Parent.FATHER;
+                            addRelation(parentPesel, childPesel, parent2);
+                            break;
+                    }
+
+
+                    System.out.println(findPerson(parentPesel));
                 case "exit":
                     System.exit(0);
             }
@@ -53,5 +74,15 @@ public class Informator {
 
     public static void printAll(){
         System.out.println(personByPesel);
+    }
+
+    public static void addRelation(String parentPesel, String childPesel, Parent parent) {
+        // tu musisz storzyć relacje tzn.:
+        //        if(parent.equals(Parent.MOTHER)) {
+        //              ustawić atrybut mama w wyszukanym w mapie dziecku na obiekt mama wyszukanej po pesel oraz dodac do listy dzieci dziecko w wyszukanym po pesel rodzicu
+        //        }
+        //        else if(parent.equals(Parent.FATHER)) {
+        //              ustawić atrybut tata w wyszukanym w mapie dziecku na obiekt tata wyszukanej po pesel oraz dodac do listy dzieci dziecko w wyszukanym po pesel rodzicu
+        //        }
     }
 }

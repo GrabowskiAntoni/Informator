@@ -17,19 +17,7 @@ public class Osoba {
 
     @Override
     public String toString() {
-        String toCoWypisze = "Nazywam się ";
-        toCoWypisze = toCoWypisze + imie + ' ' + nazwisko;
-        if (dzieci != null) {
-            toCoWypisze += ", a moje dzieci to: ";
-            for (Osoba dziecko : dzieci) {
-                toCoWypisze += dziecko;
-            }
-        }
-        return toCoWypisze;
-    }
-
-    public String shortString() {
-        return imie + " " + nazwisko;
+        return "Osoba[imie:" + imie + ", nazwisko:" + nazwisko + printChildren() + "\r\n]";
     }
 
     public String getImie() {
@@ -83,5 +71,14 @@ public class Osoba {
         this.tata = tata;
     }
 
+    private String  printChildren() {
+        String children = "";
+        if (dzieci != null && !dzieci.isEmpty()) {
+            for (Osoba dziecko : dzieci) {
+                children += "\n\t" + dziecko.toString();
+            }
+        }
+        return children;
+    }
 }
 
