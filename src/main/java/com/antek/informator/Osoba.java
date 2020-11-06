@@ -17,7 +17,7 @@ public class Osoba {
 
     @Override
     public String toString() {
-        return "Osoba[imie:" + imie + ", nazwisko:" + nazwisko + printChildren() + "\r\n]";
+        return " imie:" + imie + ", nazwisko:" + nazwisko + printChildren() + "\r\n]";
     }
 
     public String getImie() {

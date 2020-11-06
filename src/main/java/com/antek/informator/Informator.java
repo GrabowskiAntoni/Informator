@@ -9,8 +9,9 @@ public class Informator {
     public static HashMap<String, Osoba> personByPesel = new HashMap<>();
     public static void main(String... args) throws IOException {
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Witaj!\n");
         while(true){
-            System.out.println("Witaj\nWybierz opcje:\n1 - Wyświetl osoby\n2 - Rejestruj osobe\n3 - Pokaż wszystko\nAby zakonczyc program wpisz exit");
+            System.out.println("Wybierz opcję:\n\t1 - wyświetl osobę\n\t2 - rejestruj osobę\n\t3 - dodaj relację\n\t4 - wyświetl wszystkich\n\t5 - zakończ program");
             String line = buffer.readLine();
             switch(line){
                 case "1":
@@ -29,12 +30,9 @@ public class Informator {
                     System.out.println("Wpisz nazwisko:");
                     String nazwisko = buffer.readLine();
                     registerPerson(peselTwo, imie, nazwisko);
-                    System.out.println(findPerson(peselTwo));
+                    System.out.println("Zarejestrowano osobę: " + findPerson(peselTwo));
                     break;
                 case "3":
-                    printAll();
-                    break;
-                case "4":
                     System.out.println("Wpisz pesel rodzica:\n");
                     String parentPesel = buffer.readLine();
                     System.out.println("Wpisz pesel dziecka:\n");
@@ -51,10 +49,10 @@ public class Informator {
                             addRelation(parentPesel, childPesel, parent2);
                             break;
                     }
-
-
-                    System.out.println(findPerson(parentPesel));
-                case "exit":
+                case "4":
+                    printAll();
+                    break;
+                case "5":
                     System.exit(0);
             }
         }
