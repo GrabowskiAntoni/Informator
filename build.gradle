@@ -21,3 +21,7 @@ ext {
 application {
     mainClassName = informatorEntry
 }
+
+run{
+    standardInput = System.in
+}

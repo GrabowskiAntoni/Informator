@@ -1,5 +1,6 @@
 package com.antek.informator;
 
+import javax.management.relation.Relation;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,8 +9,9 @@ public class Informator {
     public static HashMap<String, Osoba> personByPesel = new HashMap<>();
     public static void main(String... args) throws IOException {
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Witaj!\n");
         while(true){
-            System.out.println("Witaj\nWybierz opcje:\n1 - Wyświetl osoby\n2 - Rejestruj osobe\n3 - Pokaż wszystko\nAby zakonczyc program wpisz exit");
+            System.out.println("Wybierz opcję:\n\t1 - wyświetl osobę\n\t2 - rejestruj osobę\n\t3 - dodaj relację\n\t4 - wyświetl wszystkich\n\t5 - zakończ program");
             String line = buffer.readLine();
             switch(line){
                 case "1":
@@ -28,12 +30,29 @@ public class Informator {
                     System.out.println("Wpisz nazwisko:");
                     String nazwisko = buffer.readLine();
                     registerPerson(peselTwo, imie, nazwisko);
-                    System.out.println(findPerson(peselTwo));
+                    System.out.println("Zarejestrowano osobę: " + findPerson(peselTwo));
                     break;
                 case "3":
+                    System.out.println("Wpisz pesel rodzica:\n");
+                    String parentPesel = buffer.readLine();
+                    System.out.println("Wpisz pesel dziecka:\n");
+                    String childPesel = buffer.readLine();
+                    System.out.println("Wpisz 1 jeśli mama, wpisz 2 jeśli tata:\n");
+                    String relationString = buffer.readLine();
+                    switch (relationString) {
+                        case "1":
+                            Parent parent1 = Parent.MOTHER;
+                            addRelation(parentPesel, childPesel, parent1);
+                            break;
+                        case "2":
+                            Parent parent2 = Parent.FATHER;
+                            addRelation(parentPesel, childPesel, parent2);
+                            break;
+                    }
+                case "4":
                     printAll();
                     break;
-                case "exit":
+                case "5":
                     System.exit(0);
             }
         }
@@ -53,5 +72,15 @@ public class Informator {
 
     public static void printAll(){
         System.out.println(personByPesel);
+    }
+
+    public static void addRelation(String parentPesel, String childPesel, Parent parent) {
+        // tu musisz storzyć relacje tzn.:
+        //        if(parent.equals(Parent.MOTHER)) {
+        //              ustawić atrybut mama w wyszukanym w mapie dziecku na obiekt mama wyszukanej po pesel oraz dodac do listy dzieci dziecko w wyszukanym po pesel rodzicu
+        //        }
+        //        else if(parent.equals(Parent.FATHER)) {
+        //              ustawić atrybut tata w wyszukanym w mapie dziecku na obiekt tata wyszukanej po pesel oraz dodac do listy dzieci dziecko w wyszukanym po pesel rodzicu
+        //        }
     }
 }
